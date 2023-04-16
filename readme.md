@@ -26,3 +26,31 @@ sudo  systemctl status zabbix-agent
 sudo  systemctl status apache2
 cat /var/log/zabbix/zabbix_server.log
 ```
+
+### Задание 2
+
+![Скриншот-3](https://github.com/dmlorren/dmlorren-hw-9-02/blob/main/img/zab_ex2_md1.jpg)
+![Скриншот-4](https://github.com/dmlorren/dmlorren-hw-9-02/blob/main/img/zab_ex2_md2.jpg)
+![Скриншот-5](https://github.com/dmlorren/dmlorren-hw-9-02/blob/main/img/zab_ex_md3.jpg)
+
+### Используемые команды к заданию 2
+
+```
+sudo wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1+debian11_all.deb
+sudo dpkg -i zabbix-release_6.4-1+debian11_all.deb
+sudo apt update
+sudo apt install zabbix-agent
+sudo systemctl restart zabbix-agent
+sudo systemctl enable zabbix-agent
+sudo  systemctl status zabbix-agent
+sudo nano /etc/hosts
+nano /etc/zabbix/zabbix_agentd.conf 
+sudo systemctl status zabbix-agent.service
+sudo systemctl restart zabbix-agent.service
+sudo systemctl status zabbix-agent.service
+sudo tail -f -n30 /var/log/zabbix/zabbix_agentd.log
+
+Дополнительно потребовалось внести изменения в zabbix_agentd.conf
+sudo nano /etc/zabbix/zabbix_agentd.conf
+Server=127.0.0.1,158.160.12.153,158.160.0.41,10.129.0.8,10.129.0.4
+```
